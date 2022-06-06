@@ -24,13 +24,8 @@ jobs:
           FROM_BRANCH: 'main'
           TO_BRANCH: 'test'
           name: Auto approve and merge PRs by dependabot
-
-# Trigger the workflow on pull request
-on:
-  pull_request
-
-jobs:
-  autoapprove:
+          
+          jobs:autoapprove:
     name: Auto Approve a PR by dependabot # Name of the job
     runs-on: ubuntu-latest # Environment on which the job runs
     steps:
@@ -42,6 +37,9 @@ jobs:
           # Create a personal access token and store it under the Secrets section of the particular repository
           # with the key "GITHUB_ACTIONS_TOKEN"
           github-token: ${{ secrets.GITHUB_ACTIONS_TOKEN }}
+
+# Trigger the workflow on pull request
+
   automerge:
     name: Auto merge after successful checks
     # By default, jobs run in parallel. To run the jobs sequentially, they keywords "needs" is needed.
