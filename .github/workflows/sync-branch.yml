@@ -3,7 +3,7 @@ name: Sync Back to Develop
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   sync-branches:
@@ -21,8 +21,8 @@ jobs:
         uses: tretuna/sync-branches@1.2.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: 'main'
-          TO_BRANCH: 'test'
+          FROM_BRANCH: 'test'
+          TO_BRANCH: 'main'
           name: Auto approve and merge PRs by dependabot
           
   
